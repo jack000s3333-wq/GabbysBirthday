@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>For Gibby 💗 | A Birthday Surprise</title>
+<style>
+  :root { --pink:#f06f98; --deep:#71384e; --cream:#fff8f5; --lav:#f4efff; --ink:#332832; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; color:var(--ink); font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif; background:var(--cream); }
+  .top { min-height:100vh; display:grid; place-items:center; padding:28px 18px; position:relative; overflow:hidden;
+    background:radial-gradient(circle at 15% 20%, #ffe1eb 0 8%, transparent 27%),radial-gradient(circle at 85% 75%, #e8ddff 0 7%, transparent 28%),linear-gradient(135deg,#fff9f3,#fff0f6 55%,#f8f1ff); }
+  .orb { position:absolute; border-radius:50%; opacity:.45; animation:float 7s ease-in-out infinite; }
+  .o1 { width:90px;height:90px;background:#ffc5d8;top:12%;left:8%; }
+  .o2 { width:52px;height:52px;background:#d7c6ff;right:12%;top:18%;animation-delay:1s; }
+  .o3 { width:72px;height:72px;background:#ffe2a8;bottom:13%;left:15%;animation-delay:2s; }
+  @keyframes float { 50% { transform:translateY(-18px) rotate(8deg); } }
+  .hero { position:relative; max-width:760px; text-align:center; padding:clamp(28px,6vw,62px); background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.9); border-radius:32px; box-shadow:0 24px 80px #a66b7a20; backdrop-filter:blur(12px); }
+  .pill { display:inline-block; padding:8px 14px; border-radius:99px; background:#ffe1eb; color:#a23e65; font-size:.82rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+  h1 { font-size:clamp(3rem,10vw,6.3rem); line-height:.98; margin:22px 0 16px; letter-spacing:-.06em; color:#3d2a38; }
+  h1 span { color:var(--pink); }
+  .sub { font-size:clamp(1rem,2.7vw,1.25rem); line-height:1.7; max-width:560px; margin:0 auto 28px; color:#6c5965; }
+  button, .btn { cursor:pointer; border:0; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:9px; border-radius:999px; padding:14px 22px; font:inherit; font-weight:800; transition:transform .2s,box-shadow .2s; }
+  button:hover,.btn:hover { transform:translateY(-2px); box-shadow:0 10px 24px #e86c972e; }
+  .primary { color:white; background:linear-gradient(135deg,#f4779d,#dc5d88); box-shadow:0 8px 20px #e86c9730; }
+  .secondary { background:white; color:var(--deep); border:1px solid #f2d9e3; }
+  .hero-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+  .music-note { min-height:1.2em; margin:14px 0 0; color:#9a7889; font-size:.88rem; }
+  .scroll-note { margin-top:20px; color:#a28c98; font-size:.88rem; }
+  @media(max-width:480px) { .hero-actions button { width:100%; } }
+  section { padding:78px 20px; }
+  .wrap { max-width:1000px; margin:auto; }
+  .section-head { text-align:center; margin-bottom:32px; }
+  .eyebrow { color:#cf5c84; font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; }
+  h2 { font-size:clamp(2rem,5vw,3.2rem); letter-spacing:-.04em; margin:10px 0; }
+  .muted { color:#806e79; line-height:1.7; }
+  .memory-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .memory { min-height:210px; border-radius:24px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid #fff; box-shadow:0 12px 30px #6b40500b; }
+  .memory:nth-child(1){background:#ffe6ee}.memory:nth-child(2){background:#f0eaff}.memory:nth-child(3){background:#fff0d6}
+  .emoji { font-size:2.2rem; }
+  .memory h3 { margin:14px 0 6px; font-size:1.25rem; }
+  .memory p { margin:0; color:#735f6a; line-height:1.6; }
+  .letter-wrap { background:linear-gradient(135deg,#fff0f5,#f2edff); }
+  .letter { max-width:720px; margin:auto; padding:clamp(24px,6vw,52px); background:#fffdfc; border-radius:26px; box-shadow:0 18px 55px #69425212; position:relative; }
+  .letter:before { content:"✿"; position:absolute; top:18px; right:24px; color:#f5a4bd; font-size:2rem; }
+  .letter h2 { font-size:2rem; }
+  .letter p { font-size:1.08rem; line-height:1.9; color:#65515e; }
+  .signature { color:#d95783!important; font-weight:800; font-size:1.2rem!important; }
+  .surprise { text-align:center; background:#fffaf7; }
+  .surprise-box { max-width:700px; margin:auto; border:1px dashed #f2a8c0; border-radius:28px; padding:34px 22px; background:white; }
+  #hiddenMessage { display:none; margin:26px auto 0; max-width:540px; padding:24px; border-radius:20px; background:#fff0f6; line-height:1.8; animation:appear .5s ease; }
+  #hiddenMessage.show { display:block; }
+  @keyframes appear { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  footer { text-align:center; padding:28px 18px 38px; color:#927e89; font-size:.9rem; }
+  .heart { display:inline-block; color:#ed6d97; animation:beat 1.2s infinite; }
+  @keyframes beat { 50%{transform:scale(1.25)} }
+  .confetti { position:fixed; top:-20px; z-index:20; pointer-events:none; animation:fall linear forwards; font-size:20px; }
+  @keyframes fall { to { transform:translateY(110vh) rotate(500deg); opacity:.15; } }
+  @media(max-width:700px) { .memory-grid{grid-template-columns:1fr}.memory{min-height:165px}.hero{border-radius:25px} section{padding:58px 17px} }
+</style>
+</head>
+<body>
+<main>
+  <section class="top" id="home">
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+    <div class="hero">
+      <div class="pill">A little surprise, made with love</div>
+      <h1>Happy Birthday,<br><span>Gibby!</span> 🎂</h1>
+      <p class="sub">For my wonderful sister — a tiny corner of the internet made just to remind you how loved you are.</p>
+      <div class="hero-actions">
+        <button class="primary" onclick="openSurprise()">Open your surprise <span>♡</span></button>
+        <button class="secondary" id="musicButton" onclick="toggleBirthdaySong()" aria-pressed="false">♫ Play birthday song</button>
+      </div>
+      <!-- Embedded base64 audio source from your track, configured to loop repeatedly -->
+      <audio id="customSong" src="happy_birthday_to_you.mp3" preload="auto" loop></audio>
+      <p class="music-note" id="musicNote">Tap “Play birthday song” to hear the song on repeat.</p>
+      <div class="scroll-note">Made especially for you · Scroll for a little more love ↓</div>
+    </div>
+  </section>
+
+  <section id="wishes">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Today is all about you</div>
+        <h2>A few things I wish for you ✨</h2>
+        <p class="muted">Not just for today, but for every day that comes after it.</p>
+      </div>
+      <div class="memory-grid">
+        <article class="memory"><div class="emoji">🌷</div><div><h3>Little moments of joy</h3><p>May ordinary days surprise you with reasons to smile.</p></div></article>
+        <article class="memory"><div class="emoji">🌙</div><div><h3>Peace in your heart</h3><p>May you always find comfort, courage, and room to be yourself.</p></div></article>
+        <article class="memory"><div class="emoji">🌟</div><div><h3>Dreams that come true</h3><p>May life bring you lovely opportunities and people who cheer you on.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter-wrap" id="letter">
+    <div class="letter">
+      <div class="eyebrow">A note from your brother</div>
+      <h2>Dear Gibby, 💌</h2>
+      <p>Happy birthday to my lovely sister! I hope this new chapter brings you happiness, confidence, good health, and countless beautiful memories.</p>
+      <p>Never forget that you deserve kindness, laughter, and all the good things life has to offer. Keep being yourself, keep dreaming, and keep that beautiful smile alive.</p>
+      <p>Whatever life brings, I’ll always be cheering for you. Today, this little page is yours — because you deserve to feel special.</p>
+      <p class="signature">Lots of love, always. <span class="heart">♥</span></p>
+    </div>
+  </section>
+
+  <section class="surprise" id="surprise">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">One last thing</div>
+        <h2>Ready for your little surprise? 🎁</h2>
+        <p class="muted">Tap the button. This part is just for you.</p>
+      </div>
+      <div class="surprise-box">
+        <div style="font-size:3rem">🎀 🎂 💗</div>
+        <p class="muted">A birthday wish is waiting inside...</p>
+        <button class="primary" onclick="revealMessage()">Reveal my birthday wish ✨</button>
+        <div id="hiddenMessage" role="status">
+          <div style="font-size:2.4rem">💖</div>
+          <strong>Gibby, you make our world brighter just by being in it.</strong><br>
+          May your year be full of love, laughter, surprises, and reasons to be proud of yourself. Happy birthday! 🎉
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Created with <span class="heart">♥</span> especially for Gibby · Happy Birthday!</footer>
+<script>
+const customSong = document.getElementById('customSong');
+
+function toggleBirthdaySong() {
+  const button = document.getElementById('musicButton');
+  const note = document.getElementById('musicNote');
+
+  if (customSong.paused) {
+    customSong.play().then(() => {
+      button.textContent = 'Ⅱ Stop birthday song';
+      button.setAttribute('aria-pressed', 'true');
+      note.textContent = 'Playing your birthday song on repeat. ♡';
+    }).catch(() => {
+      note.textContent = 'Playback was blocked or unable to load.';
+    });
+  } else {
+    customSong.pause();
+    customSong.currentTime = 0;
+    button.textContent = '♫ Play birthday song';
+    button.setAttribute('aria-pressed', 'false');
+    note.textContent = 'Tap “Play birthday song” to hear the song on repeat.';
+  }
+}
+
+function openSurprise() {
+  document.getElementById('wishes').scrollIntoView({behavior:'smooth'});
+  confettiBurst();
+}
+function revealMessage() {
+  document.getElementById('hiddenMessage').classList.add('show');
+  confettiBurst();
+}
+function confettiBurst() {
+  const pieces = ['💗','✨','🎉','🌸','💖','🎀'];
+  for (let i = 0; i < 30; i++) {
+    const el = document.createElement('span');
+    el.className = 'confetti';
+    el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.animationDuration = (2.5 + Math.random()*2.5) + 's';
+    el.style.animationDelay = (Math.random()*.5) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 5500);
+  }
+}
+</script>
+</body>
+</html>
